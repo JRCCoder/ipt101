@@ -20,7 +20,7 @@
         <?php } ?>
         
         <label>User Name</label>
-        <input type="text" name="uname" placeholder="UserName" required><br>
+        <input type="text" name="username" placeholder="UserName" required><br>
         <label>Password</label>
         <input type="password" name="password" placeholder="Password" required><br>
         <button type="submit" class="btn btn-primary mt-5">Login</button>

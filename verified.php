@@ -7,12 +7,12 @@ $email = $_GET['email'];
 $verification_code = $_GET['code'];
 
 // Check if the verification code exists in the database
-$sql = "SELECT * FROM user WHERE email='$email' AND verification_code='$verification_code'";
+$sql = "SELECT * FROM users WHERE email='$email' AND verification_code='$verification_code'";
 $result = mysqli_query($conn, $sql);    
 
 if (mysqli_num_rows($result) > 0) {
 // Update the 'verified' column to 1
-$sql_update = "UPDATE user SET verified = 1 WHERE email='$email' AND verification_code='$verification_code'";
+$sql_update = "UPDATE users SET verified = 1 WHERE email='$email' AND verification_code='$verification_code'";
 if (mysqli_query($conn, $sql_update)) {
 echo '
 <!DOCTYPE html>

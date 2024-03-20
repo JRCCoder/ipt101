@@ -1,5 +1,5 @@
 <?php
-$sname = "localhost:3306";
+$sname = "localhost:3307";
 $uname = "root";
 $password = "";
 $db_name = "ipt101";
