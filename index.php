@@ -35,7 +35,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     // Proceed with authentication
     else {
         // Check if username and password match in database
-        $sql = "SELECT * FROM users WHERE (username=? OR email=?)";
+        $sql = "SELECT * FROM user WHERE (username=? OR email=?)";
         $stmt = mysqli_prepare($conn, $sql);
         if ($stmt === false) {
             die("Error: " . mysqli_error($conn));

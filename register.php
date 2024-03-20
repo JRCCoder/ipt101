@@ -53,7 +53,7 @@ header("Location: registrationform.php?error=Passwords do not match");
 exit();
 } else {
 // Check if username or email already exists
-$sql = "SELECT * FROM users WHERE username='$username' OR email='$email'";
+$sql = "SELECT * FROM user WHERE username='$username' OR email='$email'";
 $result = mysqli_query($conn, $sql);
 if(mysqli_num_rows($result) > 0) {
 header("Location: registrationform.php?error=Username or Email already exists");
@@ -78,7 +78,7 @@ exit();
 } else {
 // Insert the user into the database
 $hashed_password = password_hash($password, PASSWORD_DEFAULT); // Hash the password
-$sql = "INSERT INTO users (Firstname, Middlename, Lastname, username, email, password, verification_code) VALUES ('$firstname', '$middlename', '$lastname', '$username', '$email', '$hashed_password', '$verification_code')";
+$sql = "INSERT INTO user (Firstname, Middlename, Lastname, username, email, password, verification_code) VALUES ('$firstname', '$middlename', '$lastname', '$username', '$email', '$hashed_password', '$verification_code')";
 
 if(mysqli_query($conn, $sql)){
 
@@ -97,7 +97,7 @@ $mail->setFrom('fontface86@gmail.com');
 $mail->addAddress($email);
 $mail->isHTML(true);
 $mail->Subject = 'Email Verification';
-$mail->Body = 'Please click the "verify" link to verify your email: <a href="http://localhost/ipt101/verified.php?email='.$email.'&code='.$verification_code.'">Verify</a>';
+$mail->Body = 'Please click the "verify" link to verify your email: <a href="http://localhost/img/ipt101/verified.php?email='.$email.'&code='.$verification_code.'">Verify</a>';
 
 // Send email
 try {$mail->send();
